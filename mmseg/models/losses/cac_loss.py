@@ -192,7 +192,7 @@ class CACLoss(nn.Module):
 
 
 if __name__ == '__main__':
-    Loss = LACLoss(hard_sort_hardmining=True, easy_sort_hardmining=True)
+    Loss = CACLoss(hard_sort_hardmining=True, easy_sort_hardmining=True)
     predict = torch.rand((2, 19, 128, 128))
     label = torch.randint(0, 19, (2, 512, 512))
     feature_map = torch.rand((2, 256, 128, 128), requires_grad=True)
