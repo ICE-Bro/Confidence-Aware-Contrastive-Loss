@@ -19,7 +19,7 @@ python -m pip install cityscapesscripts
 
 pip install setuptools==58.0.4
 ```
-5. Modify the data_root to yours for all dataset you need under configs/\_base\_/datasets/ 
+5. Modify the data_root to yours for all datasets you need under configs/\_base\_/datasets/ 
 
 ## Training
 Take a 4-card experiment as an example:
