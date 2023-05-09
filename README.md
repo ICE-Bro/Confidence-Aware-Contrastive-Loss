@@ -26,11 +26,7 @@ Take a 4-card experiment as an example:
 ```python
 CUDA_VISIBLE_DEVICES=0,1,2,3 PORT=29513 bash tools/dist_train.sh configs/cac_hrnet/fcn_hr48_4x2_512x1024_40k_cityscapes_lr0.01_0.4_0.1_1.5.py 4
 ```
-Specially, to experiment on Cityscapes train+val, the experiment on Cityscapes train must be performed first, then:
-```python
-CUDA_VISIBLE_DEVICES=0,1,2,3 PORT=29513 bash tools/dist_train.sh configs/cac_hrnet/fcn_hr48_4x2_512x1024_140k_cityscapes_lr0.001_0.4_0.1_1.5_trainval.py 4 \ 
-   --load-from work_dirs/fcn_hr48_4x2_512x1024_120k_cityscapes_lr0.01_0.4_0.1_1.5.py/latest.pth
-```
+
 ## Testing
 For single-scale test:
 ```python
@@ -80,14 +76,10 @@ For multi-scale(ms) test, we adopt flip and image ratios of [0.5, 0.75, 1.0, 1.2
 |    HRNet+CAC    | HRNetV2-48 |   train   |   val    | 0.01 | 4x2 | 120K | 82.2 | [config](configs/cac_hrnet/fcn_hr48_4x2_512x1024_120k_cityscapes_lr0.01_0.4_0.1_1.5.py) |
 | HRNet(baseline) | HRNetV2-48 |   train   |   test   | 0.01  |  4x2  | 120K  | 80.2(ms) | [config](configs/hrnet/fcn_hr48_512x1024_4x2_120k_cityscapes_lr0.01_baseline.py) |
 |    HRNet+CAC    | HRNetV2-48 |   train   |   test   | 0.01  |  4x2  | 120K  | 81.4(ms) | [config](configs/cac_hrnet/fcn_hr48_4x2_512x1024_120k_cityscapes_lr0.01_0.4_0.1_1.5.py) |
-| HRNet(baseline) | HRNetV2-48 | train+val |   test   | 0.001 |  4x2  | 140K  | 81.4(ms) | [config](configs/hrnet/fcn_hr48_512x1024_4x2_140k_cityscapes_lr0.001_trainval_baseline.py) |
-|    HRNet+CAC    | HRNetV2-48 | train+val |   test   | 0.001 |  4x2  | 140K  | 82.0(ms) | [config](configs/cac_hrnet/fcn_hr48_4x2_512x1024_140k_cityscapes_lr0.001_0.4_0.1_1.5_trainval.py) |
 | OCRNet(baseline)| HRNetV2-48 |   train   |   val    | 0.01  |  4x2  | 120K  |   81.4   | [config](configs/ocrnet/ocrnet_hr48_4x4_512x1024_120k_cityscapes_lr0.01_baseline.py) |
 |    OCRNet+CAC   | HRNetV2-48 |   train   |   val    | 0.01  |  4x2  | 120K  |   82.3   | [config](configs/cac_ocrnet/ocrnet_hr48_4x2_512x1024_120k_cityscapes_lr0.01_0.6_0.1_1.5.py) |
 | OCRNet(baseline)| HRNetV2-48 |   train   |   test   | 0.01  |  4x2  | 120K  | 81.4(ms) | [config](configs/ocrnet/ocrnet_hr48_4x4_512x1024_120k_cityscapes_lr0.01_baseline.py) |
 |    OCRNet+CAC   | HRNetV2-48 |   train   |   test   | 0.01  |  4x2  | 120K  | 81.8(ms) | [config](configs/cac_ocrnet/ocrnet_hr48_4x2_512x1024_120k_cityscapes_lr0.01_0.6_0.1_1.5.py) |
-| OCRNet(baseline)| HRNetV2-48 | train+val |   test   | 0.001 |  4x2  | 140K  | 81.7(ms) | [config](configs/ocrnet/ocrnet_hr48_4x4_512x1024_140k_cityscapes_0.001_trainval_baseline.py) |
-|    OCRNet+CAC   | HRNetV2-48 | train+val |   test   | 0.001 |  4x2  | 140K  | 82.4(ms) | [config](configs/cac_ocrnet/ocrnet_hr48_4x2_512x1024_140k_cityscapes_lr0.001_0.6_0.1_1.5_trainval.py) |
 
 ### ADE20K
 For multi-scale(ms) test, we adopt flip and image ratios of [0.5, 0.75, 1.0, 1.25, 1.5, 1.75].
