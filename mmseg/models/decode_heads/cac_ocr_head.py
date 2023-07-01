@@ -206,7 +206,7 @@ class CACOCRHead(BaseCascadeDecodeHead):
             losses_decode = self.loss_decode
 
         for loss_decode in losses_decode:
-            if loss_decode.loss_name == 'loss_lac':
+            if loss_decode.loss_name == 'loss_cac':
                 if loss_decode.loss_name not in loss:
                     loss[loss_decode.loss_name] = loss_decode(
                         predict=seg_logit,
